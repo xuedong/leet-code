@@ -21,7 +21,7 @@ class Solution1 {
 
 class Solution2 {
     fun findNumbers(nums: IntArray): Int {
-        return nums.map { it.toString() }.filter { it.length % 2 == 0 }.count()
+        return nums.map{it.toString()}.filter{it.length % 2 == 0}.count()
     }
 }
 
