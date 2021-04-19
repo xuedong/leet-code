@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    TreeNode res = new ArrayList<>();
+    List<Int> res = new ArrayList<>();
     
     public void aux(TreeNode node) {
         if (node == null) return;
