@@ -1,7 +1,7 @@
 class FooBar {
     private int n;
-    private Semaphore sem1;
-    private Semaphore sem2;
+    private final Semaphore sem1;
+    private final Semaphore sem2;
 
     public FooBar(int n) {
         this.n = n;
