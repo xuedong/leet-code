@@ -28,7 +28,7 @@ class Solution {
             
             curr = curr?.next
             count++
-            i++;
+            i++
             
             if (curr == null) {
                 break
