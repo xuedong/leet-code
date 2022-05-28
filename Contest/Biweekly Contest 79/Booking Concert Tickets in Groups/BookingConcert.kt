@@ -1,40 +1,21 @@
-/* The following exceeds the memory limit */
+/* The following code gets TLE for the last cases */
 class BookMyShow(n: Int, m: Int) {
     
-    val seats: Array<IntArray>
+    var startRow: Int
     val occupied: IntArray
-    val n: Int
     val m: Int
     
     init {
-        seats = Array(n) { IntArray(m) { 0 } }
+        startRow = 0
         occupied = IntArray(n) { 0 }
-        this.n = n
         this.m = m
     }
 
     fun gather(k: Int, maxRow: Int): IntArray {
-        if (k > this.m) return intArrayOf()
-        
-        for (r in 0..maxRow) {
-            var sum = 0
-            for (c in 0..k-1) {
-                sum += seats[r][c]
-            }
-            
-            var j = k
-            while (sum > 0 && j < this.m) {
-                sum -= seats[r][j-k]
-                sum += seats[r][j]
-                j++
-            }
-            
-            if (sum == 0) {
-                for (c in j-k..j-1) {
-                    seats[r][c] = 1
-                }
-                occupied[r] += k
-                return intArrayOf(r, j-k)
+        for (row in startRow..maxRow) {
+            if (occupied[row] <= this.m - k) {
+                occupied[row] += k
+                return intArrayOf(row, occupied[row] - k)
             }
         }
         
@@ -42,50 +23,31 @@ class BookMyShow(n: Int, m: Int) {
     }
 
     fun scatter(k: Int, maxRow: Int): Boolean {
-        if (helper(k, maxRow)) {
-            var rest = k
-            for (r in 0..maxRow) {
-                rest -= this.m - occupied[r]
-                
-                if (rest >= 0) {
-                    for (c in 0..this.m-1) {
-                        if (seats[r][c] == 0) seats[r][c] = 1
-                    }
-                    occupied[r] = this.m
-                } else {
-                    var j = 0
-                    var count = 0
-                    while (count < rest + this.m - occupied[r] && j < this.m) {
-                        if (seats[r][j] == 0) {
-                            seats[r][j] = 1
-                            count++
-                        }
-                        j++
-                    }
-                    
-                    occupied[r] = rest + this.m
-                    break
-                }
+        var rest = k
+        
+        var row = startRow
+        while (row <= maxRow) {
+            if (this.m - occupied[row] > rest) {
+                break
             }
-            
-            return true
+            rest -= this.m - occupied[row];
+            row++
         }
         
-        return false
-    }
-    
-    fun helper(k: Int, maxRow: Int): Boolean {
-        var rest = k
-        for (r in 0..maxRow) {
-            rest -= this.m - occupied[r]
-            if (rest <= 0) {
+        if (row >= maxRow + 1) {
+            if (rest == 0) {
+                startRow = row
                 return true
             }
+            return false
         }
         
-        return false
+        startRow = row
+        occupied[row] += rest
+        
+        return true
     }
-
+    
 }
 
 /**
