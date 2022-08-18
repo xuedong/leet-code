@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
 import re
-from typing import List
+from typing import List, Dict
 
 
 class Solution:
-    def diffWaysToCompute(self, expression: str) -> List[int]:
+    def diffWaysToCompute(self, expression: str, memo: Dict[str, List[int]] = {}) -> List[int]:
+        if expression in memo:
+            return memo[expression]
+
         arr = re.split('[+\-*]', expression)
         n = len(arr)
         if n == 1:
@@ -20,4 +23,6 @@ class Solution:
                 for l in left:
                     for r in right:
                         ans.append(eval(str(l) + expression[i] + str(r)))
+        memo[expression] = ans
+
         return ans
