@@ -1,8 +1,15 @@
+#!/usr/bin/env python3
+
+from typing import Optional
+
+
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         slow, fast = head, head
@@ -19,4 +26,3 @@ class Solution:
                 return False
             start, end = start.next, end.next
         return True
-
