@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 class Solution {
 public:
     int numIslands(vector<vector<char>>& grid) {
@@ -26,4 +29,3 @@ public:
         return 1;
     }
 };
-
