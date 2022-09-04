@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+from collections import Counter
+from typing import List
+
+
+class Solution:
+    def numberOfBoomerangs(self, points: List[List[int]]) -> int:
+        return sum(n * (n - 1) for point in points for n in Counter(
+            (x - point[0]) ** 2 + (y - point[1]) ** 2 for x, y in points).values())
