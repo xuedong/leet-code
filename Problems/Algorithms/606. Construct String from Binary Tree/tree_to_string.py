@@ -12,6 +12,6 @@ class Solution:
             return str(root.val)
 
         left, right = self.tree2str(root.left), self.tree2str(root.right)
-        if  right == "":
+        if right == "":
             return str(root.val) + "(" + left + ")"
         return str(root.val) + "(" + left + ")" + "(" + right + ")"
