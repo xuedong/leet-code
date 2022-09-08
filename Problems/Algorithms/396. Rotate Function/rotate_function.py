@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+from typing import List
+
+
 class Solution:
     def maxRotateFunction(self, nums: List[int]) -> int:
         n = len(nums)
