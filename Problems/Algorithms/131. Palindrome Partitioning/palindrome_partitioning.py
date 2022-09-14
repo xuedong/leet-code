@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from copy import copy
 from typing import List
 
 
@@ -10,11 +9,12 @@ class Solution:
         self.curr = []
 
     def partition(self, s: str) -> List[List[str]]:
-        return self.helper(s, 0)
+        self.helper(s, 0)
+        return self.results
         
     def helper(self, s: str, start: int):
         if start >= len(s):
-            self.results.append(copy(self.curr))
+            self.results.append(self.curr[:])
             return
 
         for i in range(start, len(s)):
