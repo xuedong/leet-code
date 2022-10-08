@@ -17,8 +17,7 @@ class MyCalendarThree:
         for v in self.calendar.values():
             active += v
             k = max(k, active)
-        return k
-        
+        return
 
 
 # Your MyCalendarThree object will be instantiated and called as such:
