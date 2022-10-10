@@ -10,6 +10,7 @@ class Solution:
         nums.sort()
 
         for i in range(len(nums) - 2):
+            if i > 0 and nums[i] == nums[i-1]: continue
             j, k = i + 1, len(nums) - 1
             while j < k:
                 curr = nums[i] + nums[j] + nums[k]
