@@ -6,23 +6,23 @@ class Solution {
             return -1;
         }
 
-        int[][] dp = new int[d+1][n+1];
-        for (int i = 0; i <= d; i++) {
-            Arrays.fill(dp[i], Integer.MAX_VALUE);
+        int[][] dp = new int[d][n];
+        dp[0][0] = jobDifficulty[0];
+        for (int i = 1; i < n; i++) {
+            dp[0][i] = Math.max(dp[0][i - 1], jobDifficulty[i]);
         }
-        dp[0][0] = 0;
-        for (int i = 1; i <= d; i++) {
-            for (int j = i; j <= n; j++) {
-                int max = 0;
+
+        for (int i = 1; i < d; i++) {
+            for (int j = i; j < n; j++) {
+                int max = jobDifficulty[j];
+                dp[i][j] = Integer.MAX_VALUE;
                 for (int k = j; k >= i; k--) {
-                    max = Math.max(max, jobDifficulty[k-1]);
-                    if (dp[i-1][k-1] != Integer.MAX_VALUE) {
-                        dp[i][j] = Math.min(dp[i][j], dp[i-1][k-1] + max);
-                    }
+                    max = Math.max(max, jobDifficulty[k]);
+                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][k - 1] + max);
                 }
             }
         }
 
-        return dp[d][n];
+        return dp[d - 1][n - 1];
     }
 }
