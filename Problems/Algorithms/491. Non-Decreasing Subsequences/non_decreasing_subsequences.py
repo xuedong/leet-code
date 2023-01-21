@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+from typing import List
+
+
 class Solution:
     def findSubsequences(self, nums: List[int]) -> List[List[int]]:
         result = set()
