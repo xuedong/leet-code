@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+from typing import List
+
+
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
         left, right = -1, len(nums)
