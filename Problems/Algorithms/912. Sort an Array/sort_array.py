@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+
+from collections import Counter
+from typing import List
+
+
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
         counts = Counter(nums)
