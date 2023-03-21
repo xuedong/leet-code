@@ -1,3 +1,5 @@
+package main
+
 func canPlaceFlowers(flowerbed []int, n int) bool {
 	for i, plot := range flowerbed {
 		if plot == 1 {
