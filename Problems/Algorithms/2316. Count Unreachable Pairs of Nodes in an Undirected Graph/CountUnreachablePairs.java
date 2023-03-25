@@ -14,7 +14,7 @@ class Solution {
         }
         return count;
     }
-
+f
     public long countPairs(int n, int[][] edges) {
         Map<Integer, List<Integer>> adj = new HashMap<>();
         for (int [] edge : edges) {
