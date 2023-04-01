@@ -1,3 +1,6 @@
+#include <iostream>
+#include <algorithm>
+
 class Solution {
 public:
     int nthMagicalNumber(int n, int a, int b) {
@@ -5,7 +8,7 @@ public:
         int lcm = a * b / gcd(a, b);
 
         long left = -1;
-        long right = (long) n * min(a, b) + 1;
+        long right = (long) n * std::min(a, b) + 1;
         while (right - left > 1) {
             long mid = left + (right - left) / 2;
 
