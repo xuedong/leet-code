@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+from typing import List
+
+
 class Solution:
     def numWays(self, words: List[str], target: str) -> int:
         mod = 1000000007
