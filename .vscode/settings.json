@@ -3,6 +3,9 @@
     "files.associations": {
         "algorithm": "cpp",
         "chrono": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "vector": "cpp",
+        "iosfwd": "cpp",
+        "iterator": "cpp"
     }
 }
