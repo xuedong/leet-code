@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from typing import List
-s
+
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
