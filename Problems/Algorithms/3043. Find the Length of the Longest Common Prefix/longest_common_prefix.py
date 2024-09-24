@@ -30,11 +30,10 @@ class Trie:
         for digit in num_str:
             idx = int(digit)
             if node.children[idx]:
-                if node.children[idx]:
-                    length += 1
-                    node = node.children[idx]
-                else:
-                    break
+                length += 1
+                node = node.children[idx]
+            else:
+                break
 
         return length
 
