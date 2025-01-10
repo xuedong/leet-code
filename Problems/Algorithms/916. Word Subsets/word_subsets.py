@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from collections import defaultdict
+from collections import defaultdict, Counter
+from typing import List
 
 
 class Solution:
