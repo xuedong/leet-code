@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from typing immport List
+from typing import List
 
 
 class Solution:
