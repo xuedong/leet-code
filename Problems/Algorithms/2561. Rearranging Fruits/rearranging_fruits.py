@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from typing import List
+from collections import Counter
 
 
 class Solution:
